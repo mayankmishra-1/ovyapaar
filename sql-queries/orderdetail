@@ -1,0 +1,7 @@
+create table orderdetail
+(
+    o_id int,
+    product_id int,
+    quantity int,
+    rate int
+);
