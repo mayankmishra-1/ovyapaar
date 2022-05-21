@@ -1,6 +1,6 @@
 create table seller
 (
-s_id int primary key,
+s_id int primary key AUTO_INCREMENT,
 f_name varchar(50) not null,
 m_name varchar(50),
 l_name varchar(50),

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <title>Seller Registration</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
+<h1>Seller Registration</h1>
+<button onclick="history.back()">Back</button>
+
+<body>
+    <div>
+        <form action="seller-registration.php" method="post" class="center-form">
+            <input type="text" id="fname" name="fname" placeholder="Enter First Name:*"><br><br>
+            <input type="text" id="mname" name="mname" placeholder="Enter Middle Name:"><br><br>
+            <input type="text" id="lname" name="lname" placeholder="Enter Last Name:"><br><br>
+            <input type="text" id="locality" name="locality" placeholder="Enter Locality:*"><br><br>
+            <input type="text" id="city" name="city" placeholder="Enter City:*"><br><br>
+            <input type="text" id="state" name="state" placeholder="Enter State:*"><br><br>
+            <input type="text" id="country" name="country" placeholder="Enter Country:*"><br><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" placeholder="Enter Date of Birth:*"><br><br>
+            <input type="text" id="number" name="number" placeholder="Enter Contact Number:*"><br><br>
+            <input type="text" id="mail" name="mail" placeholder="Enter Your Email:*"><br><br>
+            <input type="password" id="password" name="password" placeholder="Enter Password:*"><br><br>
+            <input type="password" id="passwordc" name="passwordc" placeholder="Confirm Password:*"><br><br>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</body>
+
+</html>
