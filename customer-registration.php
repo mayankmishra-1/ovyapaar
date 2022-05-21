@@ -1,4 +1,5 @@
 <?php
+require_once "./db.php";
 $fname = $_POST['fname'];
 $mname = $_POST['mname'];
 $lname = $_POST['lname'];
@@ -12,7 +13,7 @@ $email = $_POST['mail'];
 $password = $_POST['password'];
 
 
-$con = new mysqli("localhost", "root", "Eniac@123", "ovyapaar");
+$con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
 if($con->connect_error) {
     die($con->connect_error);
 }
