@@ -36,8 +36,8 @@
             <h1><?= $row['p_name']?></h1>
             <p class="price">Rs.<?=$row['p_price']?></p>
             <p><?= $row['p_desc']?></p>
-            <p><button>Add to Cart</button></p>
-            <p><button onclick="window.location.href = 'Seller-login.html';">Buy Now</button></p>
+            <p><button onclick="window.location.href = 'cart.html';">Add to Cart</button></p>
+            <p><button onclick="window.location.href = 'cart.html';">Buy Now</button></p>
           </div>
           <?php
             }
