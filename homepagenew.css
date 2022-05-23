@@ -14,11 +14,18 @@ body {
 }
 header {
     background-color: black;
+    top: 0;
+    width: 98%;
+    position: fixed;
     color: white;
     height: 70px;
    
 }
 
+
+main {
+  min-height: 800px;
+}
 /**{
     margin: 0;
     padding: 0;
@@ -79,14 +86,14 @@ footer {
     color: white;
     height: 70px;
     border-bottom: 1px solid #ccc;
-    padding: .5em 1em;
+    /* padding: .5em 1em; */
     text-align: center;
-    padding: .5em 1em;
-    position: fixed;
+    /* padding: .5em 1em; */
     padding: 10px 10px 0px 10px;
     bottom: 0;
     height: 70px;
-    width: 98%;
+    width: 100%;
+    margin-bottom: 0;
 }
 
   
@@ -96,6 +103,11 @@ footer {
     margin: auto;
     text-align: center;
     font-family: arial;
+  }
+
+  .card img {
+    width: 240px;
+    height: 180px;
   }
   
   .price {

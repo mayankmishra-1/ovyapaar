@@ -2,7 +2,10 @@
 if(!session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-$cust_id = $_SESSION['cust_id'];
+
+if(isset($_SESSION['cust_id'])) {
+    $cust_id = $_SESSION['cust_id'];
+}
 
 require_once "./db.php";
 

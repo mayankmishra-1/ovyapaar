@@ -6,11 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="homepagenew.css">
+    <link rel="stylesheet" href="sidebar.css">
     <title>Customer Login</title>
 </head>
-<button onclick="history.back()">Back</button>
 
 <body class="body-grey">
+    <header class="site-header">
+        <div class="site-identity">
+          <a href="homepagenew.php"><img src="ovyapaar.png" alt="O-Vyapaar"></a>
+        </div>
+        <nav class="site-navigation">
+          <ul class="nav">
+            <!-- <li><a id="login_signup">Logout</a></li> -->
+          </ul>
+        </nav>
+      </header>
+      <div class="sidenav">
+        <a href="homepagenew.php">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+      </div>
     <div>
         <form action="customer-login.php" method="post" class="center-form margin-vertical-center">
             <h1>Login</h1>
@@ -18,8 +34,8 @@
             <input type="password" id="password" name="password" placeholder="Enter Password"><br><br>
             <input type="submit" value="Login">
             <input type="reset" value="Reset">
-            <div align="left"><a href="seller-login.html">Not a customer? Click Here.</a></div>
-            <div align="right"><a href="customer-registration.html">Don't have an account? Sign up.</a></div>
+            <div><a href="seller-login.html">Not a customer? Click Here.</a></div>
+            <div><a href="customer-registration.html">Don't have an account? Sign up.</a></div>
         </form>
     </div>
 </body>

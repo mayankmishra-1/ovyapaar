@@ -25,7 +25,13 @@ if (isset($_POST['delete'])) {
     <title>Cart</title>
     <link rel="stylesheet" href="homepagenew.css">
     <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="cart.css">
 </head>
+<style>
+    h1 {
+        text-align: center;
+    }
+</style>
 
 <body>
     <div class="sidenav">
@@ -41,6 +47,7 @@ if (isset($_POST['delete'])) {
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
     ?>
+        <div class="carttable">
         <form action="" method="post">
             <table>
                 <tr>
@@ -53,15 +60,17 @@ if (isset($_POST['delete'])) {
                 </tr>
                 <?php
                 $i = 0;
+                $total = 0;
                 while ($row = $result->fetch_assoc()) {
                     $i++;
+                    $total += $row['price'];
                 ?>
                     <input type="hidden" name="cart_id" id="" value="<?= $row['cart_id'] ?>">
                     <tr>
                         <td><?= $i ?></td>
                         <td><?= $row['product_id'] ?></td>
                         <td><?= get_product_name($row['product_id']) ?></td>
-                        <td><?= $row['quantity'] ?></td>
+                        <td>1</td>
                         <td><?= $row['price'] ?></td>
                         <td><button name="delete">Delete</button></td>
                     </tr>
@@ -69,9 +78,11 @@ if (isset($_POST['delete'])) {
                 }
                 ?>
             </table>
-            <p>Cart Total: </p>
+            
+            <p>Cart Total: <?= $total?></p>
             <button>Checkout</button>
         </form>
+        </div>
     <?php
     } else {
         echo "Cart empty";

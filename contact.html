@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="homepagenew.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="contact.css">
+  <title>Add Products</title>
+</head>
+<style>
+  h1 {
+    text-align: center;
+  }
+</style>
+
+<body>
+  <header class="site-header">
+    <div class="site-identity">
+      <a href="homepagenew.php"><img src="ovyapaar.png" alt="O-Vyapaar"></a>
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav">
+        <li><a id="login_signup">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="sidenav">
+    <a href="homepagenew.php">Home</a>
+    <a href="#">Contact</a>
+    <a href="about.html">About</a>
+  </div>
+  <div class="container">
+    <form action="action_page.php">
+
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="india">India</option>
+      </select>
+
+      <label for="subject">Subject</label>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+      <input type="submit" value="Submit">
+
+    </form>
+  </div>
+</body>
+
+</html>

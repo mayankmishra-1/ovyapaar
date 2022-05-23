@@ -6,11 +6,16 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once "./db.php";
 
 if (isset($_POST['add_to_cart'])) {
-  $cust_id = $_SESSION['cust_id'];
-  $product_id = $_POST['product_id'];
-  $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-  $sql = "INSERT INTO cart(cust_id, product_id) VALUES('$cust_id', '$product_id')";
-  $con->query($sql);
+  if (isset($_SESSION['cust_id'])) {
+    $cust_id = $_SESSION['cust_id'];
+    $product_id = $_POST['product_id'];
+    $price = $_POST['price'];
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "INSERT INTO cart(cust_id, product_id,price) VALUES('$cust_id', '$product_id', '$price')";
+    $con->query($sql);
+  } else {
+    echo "<script>alert('Please login to access cart')</script>";
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -41,11 +46,13 @@ if (isset($_POST['add_to_cart'])) {
       $sql = "SELECT * FROM product";
       $result = $con->query($sql);
       while ($row = $result->fetch_assoc()) {
+
       ?>
         <form action="" method="post">
           <div class="card">
             <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($row['p_image']); ?>">
             <input type="hidden" name="product_id" id="product_id" value="<?= $row['product_id'] ?>">
+            <input type="hidden" name="price" id="price" value="<?= $row['p_price'] ?>">
             <h1><?= $row['p_name'] ?></h1>
             <p class="price">Rs.<?= $row['p_price'] ?></p>
             <p><?= $row['p_desc'] ?></p>
@@ -62,7 +69,7 @@ if (isset($_POST['add_to_cart'])) {
     <div class="modal-container" id="login_modal">
       <div class="modal-content">
         <div class="modal-header">
-          Login
+          <h2>Login</h2>
         </div>
         <div class="modal-body">
           <form action="customer-login.php" method="post" class="modal-form-center-1-col">
@@ -73,6 +80,8 @@ if (isset($_POST['add_to_cart'])) {
           </form>
         </div>
         <div class="modal-footer">
+        <a href="customer-registration.html"><button type="button" id="seller_login">New user? Click here</button></a>
+          <a href="Seller-login.html"><button type="button" id="seller_login">Not a customer? Click here</button></a>
           <button type="button" id="close_login_modal">Close</button>
         </div>
       </div>

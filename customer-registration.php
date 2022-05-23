@@ -20,7 +20,7 @@ if($con->connect_error) {
 
 $sql = "INSERT INTO customer(f_name, m_name, l_name, locality, city, state, country, dob, number, mail, password) VALUES('$fname','$mname','$lname','$locality','$city','$state','$country','$dob','$number', '$email', '$password')";
 if($con->query($sql)) {
-    echo "Your registration is successfull";
+    header("location:customer-login.html");
 } else {
     echo $con->error;
 }

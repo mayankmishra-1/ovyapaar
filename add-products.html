@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="app.css">
+  <!-- <link rel="stylesheet" href="app.css"> -->
   <link rel="stylesheet" href="homepagenew.css">
   <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="add-products.css">
   <title>Add Products</title>
 </head>
 <style>
@@ -26,23 +27,23 @@
         <li><a id="login_signup">Logout</a></li>
       </ul>
     </nav>
-  </header>
+  </header><br><br><br><br><br>
   <h1>Add Products</h1>
   <div class="sidenav">
     <a href="homepagenew.php">Home</a>
     <a href="#">Products</a>
     <a href="#">Sales</a>
-    <a href="#">Contact</a>
+    <a href="contact.html">Contact</a>
     <a href="about.html">About</a>
   </div>
   <div>
-    <form action="add-products.php" method="get" class="center-form" enctype="multipart/form-data">
-      <input type="text" id="pname" name="pname" placeholder="Enter Product Name"><br><br>
+    <form action="add-products.php" method="post" class="products-center-form" enctype="multipart/form-data">
+      <input type="text" id="pname" name="pname" placeholder="Enter Product Name" required><br><br>
       <input type="text" id="unit" name="unit" placeholder="Enter unit"><br><br>
       <input type="text" id="price" name="price" placeholder="Enter [price]"><br><br>
       <input type="text" id="desc" name="desc" placeholder="Enter description"><br><br>
       <label for="image">Upload image:</label>
-      <input type="file" id="image" name="image" placeholder="add images"><br><br>
+      <input type="file" id="image" name="image" placeholder="add images" required><br><br>
       <input type="text" id="category" name="category" placeholder="Enter category"><br><br>
       <input type="submit" value="Submit">
       <input type="reset" value="Reset">
