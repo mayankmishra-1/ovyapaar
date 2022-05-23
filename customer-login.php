@@ -8,7 +8,11 @@ if($con->connect_error) {
 $sql = "select * from customer where mail='$mail' AND password='$password'";
 $result = $con->query($sql);
 if($result->num_rows>0) {
-    header("location:customer-dashboard.php");
+    $row = $result->fetch_assoc();
+    session_start();
+    $_SESSION['mail'] = $mail;
+    $_SESSION['cust_id'] = $row['cust_id'];
+    header("location:homepagenew.php");
 } else {
     echo "Invalid User Id/Password";
 }

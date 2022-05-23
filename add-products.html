@@ -2,33 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app.css">
-    <title>Add Products</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="homepagenew.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <title>Add Products</title>
 </head>
 <style>
-    h1 {
-        text-align: center;
-    }
+  h1 {
+    text-align: center;
+  }
 </style>
-<h1>Add Products</h1>
 
 <body>
-    <div>
-        <form action="add-products.php" method="post" class="center-form">
-            <input type="text" id="pname" name="pname" placeholder="Enter Product Name"><br><br>
-            <input type="text" id="unit" name="unit" placeholder="Enter unit"><br><br>
-            <input type="text" id="price" name="price" placeholder="Enter [price]"><br><br>
-            <input type="text" id="desc" name="desc" placeholder="Enter description"><br><br>
-            <label for="image">Upload image:</label>
-            <input type="file" id="image" name="image" placeholder="add images"><br><br>
-            <input type="text" id="category" name="category" placeholder="Enter category"><br><br>
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
-        </form>
+  <header class="site-header">
+    <div class="site-identity">
+      <a href="homepagenew.php"><img src="ovyapaar.png" alt="O-Vyapaar"></a>
     </div>
+    <nav class="site-navigation">
+      <ul class="nav">
+        <li><a id="login_signup">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  <h1>Add Products</h1>
+  <div class="sidenav">
+    <a href="homepagenew.php">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Sales</a>
+    <a href="#">Contact</a>
+    <a href="about.html">About</a>
+  </div>
+  <div>
+    <form action="add-products.php" method="get" class="center-form" enctype="multipart/form-data">
+      <input type="text" id="pname" name="pname" placeholder="Enter Product Name"><br><br>
+      <input type="text" id="unit" name="unit" placeholder="Enter unit"><br><br>
+      <input type="text" id="price" name="price" placeholder="Enter [price]"><br><br>
+      <input type="text" id="desc" name="desc" placeholder="Enter description"><br><br>
+      <label for="image">Upload image:</label>
+      <input type="file" id="image" name="image" placeholder="add images"><br><br>
+      <input type="text" id="category" name="category" placeholder="Enter category"><br><br>
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </form>
+  </div>
 </body>
 
 </html>

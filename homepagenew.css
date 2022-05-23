@@ -148,6 +148,10 @@ footer {
     color: #fff;
   }
 
+  a:hover{
+    color: #f1f1f1;
+  }
+
   .site-header { 
     border-bottom: 1px solid #ccc;
     padding: .5em 1em;

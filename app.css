@@ -29,3 +29,47 @@
     background-size: cover;
     position: relative;
   }
+
+
+  /*------------ Modal-Box-----*/
+
+  .modal-container {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+
+  .modal-content {
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 10px;
+  }
+
+  .modal-header {
+    min-height: 50px;
+  }
+
+  .modal-body {
+    padding: 10px;
+    background-color: aqua;
+    min-height: 300px;
+    margin-top: 10px;
+  }
+
+  .modal-footer {
+    min-height: 50px;
+  }
+
+  .modal-form-center-1-col input, button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
