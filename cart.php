@@ -36,10 +36,10 @@ if (isset($_POST['delete'])) {
 <body>
     <div class="sidenav">
         <a href="homepagenew.php">Home</a>
-        <a href="#">Contact</a>
+        <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
     </div>
-    <?php require_once "./header.php"; ?>
+    <?php require_once "./header.php"; ?><br><br><br><br><br>
     <h1>Cart</h1>
     <?php
     $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
@@ -80,7 +80,7 @@ if (isset($_POST['delete'])) {
             </table>
             
             <p>Cart Total: <?= $total?></p>
-            <button>Checkout</button>
+            <button type="button" onclick="window.location.href='address.php'">Checkout</button>
         </form>
         </div>
     <?php
