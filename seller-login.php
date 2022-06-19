@@ -8,7 +8,7 @@ if($con->connect_error) {
 $sql = "select * from seller where mail='$mail' AND password='$password'";
 $result = $con->query($sql);
 if($result->num_rows>0) {
-    header("location:add-products.html");
+    header("location:seller-dashboard.php");
 } else {
     echo "Invalid User Id/Password";
 }

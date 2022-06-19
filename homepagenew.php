@@ -11,7 +11,7 @@ if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
     $price = $_POST['price'];
     $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-    $sql = "INSERT INTO cart(cust_id, product_id,price) VALUES('$cust_id', '$product_id', '$price')";
+    $sql = "INSERT INTO cart(cust_id, product_id, quantity, price) VALUES('$cust_id', '$product_id', 1, '$price')";
     $con->query($sql);
   } else {
     echo "<script>alert('Please login to access cart')</script>";
