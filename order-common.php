@@ -58,8 +58,18 @@ function count_orders($type, $sid)
     return $count;
 }
 
-function fetch_fullfilled_orders()
+function fetch_fullfilled_orders($sid)
 {
+    $orders=null;
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "SELECT * FROM orders WHERE s_id='$sid' AND status='F'";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        $orders = $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return "No orders found";
+    }
+    return $orders;
 }
 
 function fetch_active_orders($sid)
@@ -76,8 +86,18 @@ function fetch_active_orders($sid)
     return $orders;
 }
 
-function fetch_cancelled_orders()
+function fetch_cancelled_orders($sid)
 {
+    $orders=null;
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "SELECT * FROM orders WHERE s_id='$sid' AND status='C'";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        $orders = $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return "No orders found";
+    }
+    return $orders;
 }
 
 function fetch_cart($cust_id)
