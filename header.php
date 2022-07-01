@@ -11,7 +11,6 @@ if (isset($_SESSION['mail'])) {
   $display = "Welcome! " . get_customer_name("$mail");
 }
 ?>
-
 <header class="site-header">
   <div class="site-identity">
     <a href="homepagenew.php"><img src="ovyapaar.png" alt="O-Vyapaar"></a>
@@ -19,7 +18,8 @@ if (isset($_SESSION['mail'])) {
   <nav class="site-navigation">
     <ul class="nav">
       <li><input type="text" placeholder="Search.."></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="customer-order.php">Orders</a></li>
+      <li><a href="customer-account-setting.php">Settings</a></li>
       <li><a href="cart.php">Cart <span><?php if(isset($_SESSION['cust_id'])) { echo "[" . cart_count($cust_id) . "]";} ?></span></a></li>
       <li><a id="login_signup"><?= $display ?></a></li>
       <?php

@@ -117,3 +117,63 @@ function mail_order()
 {
 
 }
+
+function mark_as_fulfilled($oid)
+{
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "UPDATE orders SET status = 'F' WHERE o_id='$oid'";
+    if($con->query($sql)) {
+        echo "Order fulfilled!";
+    } else {
+        echo $con->error;
+    }
+}
+
+function delete_order($oid)
+{
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "UPDATE orders SET status = 'D' WHERE o_id='$oid'";
+    if($con->query($sql)) {
+        echo "Order deleted!";
+    } else {
+        echo $con->error;
+    }
+}
+function cancel_order($oid)
+{
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "UPDATE orders SET status = 'C' WHERE o_id=$oid";
+    if($con->query($sql)) {
+        echo "Order Cancelled!";
+    } else {
+        echo $con->error;
+    }
+}
+function fetch_customer_orders($cust_id)
+{
+    $orders=null;
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "SELECT * FROM orders WHERE cust_id='$cust_id'";
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        $orders = $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return "No orders found";
+    }
+    return $orders;
+}
+
+function is_cancelled($oid)
+{
+    $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
+    $sql = "SELECT * from orders WHERE o_id=$oid AND status = 'C'";
+    $result = $con->query($sql);
+    if($result->num_rows>0) {
+        return true;
+    } else {
+        echo $con->error;
+        return false;
+    }
+}
+
+// echo is_cancelled(14);

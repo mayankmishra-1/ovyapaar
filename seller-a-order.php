@@ -1,8 +1,10 @@
 <?php
 require_once "./order-common.php";
 require_once "./product-common.php";
+require_once "./customer-common.php";
+require_once "./customer-controller.php";
 session_start();
-$order_id = $_SESSION['order_id'];
+$order_id = $_GET['oid'];
 echo $order_id;
 $order = fetch_order($order_id);
 $order_details = fetch_order_details($order_id);
@@ -54,22 +56,29 @@ $order_details = fetch_order_details($order_id);
   <div class="container">
     <div class="hero">
       <!--<img src="https://www.digitshack.com/codepen/mentor1/illustration-hero.svg" alt="">-->
-      <img src="ambikaart.jpg" alt="" height="180">
+      <!-- <img src="ambikaart.jpg" alt=""> -->
     </div>
     <div class="text-content">
       <h2 class="title">
-        Order Confirmation
+        Order No:<?= $order[0]['o_id']; ?>
       </h2>
       <p class="subtitle">
-        Here are the order details:
-        Order No: <?= $order[0]['o_id']; ?>
+        Here are the order details:</p>
+        <p class="subtitle">Customer name: <?= get_customer_name_by_cid($order[0]['cust_id']);?>
+      </p>
+      <?php
+              $address = fetch_customer_address($order[0]['cust_id']);
+              $number = get_customer_details($order[0]['cust_id']);
+              ?>
+      <p class="subtitle">Customer Address: <?= $address[0]['locality']; ?>,<?= $address[0]['city']; ?>,<?= $address[0]['state']; ?>
+      </p>
+      <p class="subtitle">Customer Contact:<?= $number['number']; ?>
       </p>
       <?php
       foreach ($order_details as $order_item) {
       ?>
         <div class="plan-box">
           <div class="plan-box-left">
-            <!-- <img src="https://www.digitshack.com/codepen/mentor1/icon-music.svg" alt=""> -->
             <div>
               <?php
               $product = fetch_product($order_item['product_id']);
@@ -83,7 +92,7 @@ $order_details = fetch_order_details($order_id);
       <?php
       }
       ?>
-      <a href="homepagenew.php" class="proceed-btn">Proceed</a>
+      <a href="seller-dashboard.php" class="proceed-btn">Go Back</a>
     </div>
   </div>
   <!-- for youtube -->

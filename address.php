@@ -14,6 +14,20 @@ $cid = $_SESSION['cust_id'];
   <link rel="stylesheet" href="address.css">
   <link rel="stylesheet" href="homepagenew.css">
   <title>Complete your purchase</title>
+  <style>
+    header {
+            background-color: black;
+            top: 0;
+            width: 100%;
+            position: fixed;
+            color: white;
+            height: 70px;
+
+        }
+        .container{
+          margin-top: 50px;
+        } 
+        </style>
 </head>
 
 <body>
@@ -23,7 +37,7 @@ $cid = $_SESSION['cust_id'];
   <div class="container">
     <div class="hero">
       <!--<img src="https://www.digitshack.com/codepen/mentor1/illustration-hero.svg" alt="">-->
-      <img src="ambikaart.jpg" alt="">
+      <img src="ambikaart.jpg" alt="" height="200" width="400">
     </div>
     <div class="text-content">
       <h2 class="title">
@@ -40,14 +54,14 @@ $cid = $_SESSION['cust_id'];
             <?php
                 $address = fetch_customer_address($cid);
             ?>
-            <h5><?= $address[0]['city'];?></h5>
-            <p>Shiv Temple</p>
+            <h5><?= $address[0]['locality'];?>,  <?= $address[0]['city'];?></h5>
+            <p><?= $address[0]['state'];?></p>
           </div>
         </div>
-        <a href="#">Edit</a>
+        <a href="customer-account-setting.php">Edit</a>
       </div>
       <a href="ordersummary.php" class="proceed-btn">Proceed</a>
-      <a href="#" class="cancel-btn">Cancel Order</a>
+      <a href="homepagenew.php" class="cancel-btn">Cancel Order</a>
     </div>
   </div>
   <!-- for youtube -->

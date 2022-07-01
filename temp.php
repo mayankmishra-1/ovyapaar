@@ -1,12 +1,3 @@
-<?php
-require_once "./order-common.php";
-require_once "./product-common.php";
-session_start();
-$order_id = $_SESSION['order_id'];
-echo $order_id;
-$order = fetch_order($order_id);
-$order_details = fetch_order_details($order_id);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,48 +33,54 @@ $order_details = fetch_order_details($order_id);
     <ul class="nav">
       <li><input type="text" placeholder="Search.."></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="cart.php">Cart <span><?php if(isset($_SESSION['cust_id'])) //{ //echo "[" . cart_count($cust_id) . "]";} ?></span></a></li>
+      <li><a href="cart.php">Cart <span><?php if(isset($_SESSION['cust_id'])) { echo "[" . cart_count($cust_id) . "]";} ?></span></a></li>
       <li><a id="login_signup"></a></li>
-      <?php
-      if (isset($_SESSION['mail']))
-        echo "<li><a href='logout.php'>Logout</a></li>";
-      ?>
+      <!-- <?php
+    //   if (isset($_SESSION['mail']))
+    //     echo "<li><a href='logout.php'>Logout</a></li>";
+      ?> -->
     </ul>
   </nav>
 </header>
   <div class="container">
     <div class="hero">
       <!--<img src="https://www.digitshack.com/codepen/mentor1/illustration-hero.svg" alt="">-->
-      <img src="ambikaart.jpg" alt="" height="180">
+      <img src="ambikaart.jpg" alt="" height="200" width="400">
     </div>
     <div class="text-content">
       <h2 class="title">
         Order Confirmation
       </h2>
       <p class="subtitle">
-        Here are the order details:
-        Order No: <?= $order[0]['o_id']; ?>
+        Your order has with order no: 7 has been received
       </p>
-      <?php
-      foreach ($order_details as $order_item) {
-      ?>
+      <!-- <?php
+    //   foreach ($order_details as $order_item) {
+      ?> -->
         <div class="plan-box">
           <div class="plan-box-left">
             <!-- <img src="https://www.digitshack.com/codepen/mentor1/icon-music.svg" alt=""> -->
             <div>
-              <?php
-              $product = fetch_product($order_item['product_id']);
-              ?>
-              <h5><?= $product[0]['p_name'] ;?></h5>
-              <p>Qty.<?= $order_item['quantity'];?></p>
+              
+               <h5>Terracotta Vase</h5> 
+              <p>Qty.1</p>
             </div>
           </div>
-          Rs. <?= $order_item['rate'];?>
+          Rs. 600
         </div>
-      <?php
-      }
-      ?>
+        <div class="plan-box">
+          <div class="plan-box-left">
+            <!-- <img src="https://www.digitshack.com/codepen/mentor1/icon-music.svg" alt=""> -->
+            <div>
+              
+               <h5>Tussar Silk Saree</h5> 
+              <p>Qty.1</p>
+            </div>
+          </div>
+          Rs. 3000
+        </div>
       <a href="homepagenew.php" class="proceed-btn">Proceed</a>
+      <a href="#" class="cancel-btn">Cancel Order</a>
     </div>
   </div>
   <!-- for youtube -->

@@ -4,7 +4,7 @@ require_once "./cart-common.php";
 session_start();
 $cid = $_SESSION['cust_id'];
 $cart = fetch_cart($cid);
-$sid = 1;
+$sid = $cart[0]['s_id'];
 $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
 $sql = "INSERT INTO orders(o_date, o_time, cust_id, s_id, status) VALUES(CURDATE(), CURTIME(), $cid, $sid, 'A')";
 if($con->query($sql)) {

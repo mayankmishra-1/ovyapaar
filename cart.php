@@ -31,6 +31,9 @@ if (isset($_POST['delete'])) {
     h1 {
         text-align: center;
     }
+    body{
+    background-image: url(https://www.digitshack.com/codepen/mentor1/pattern-background-desktop.svg);
+  }
 </style>
 
 <body>

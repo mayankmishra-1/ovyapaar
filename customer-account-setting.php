@@ -1,3 +1,8 @@
+<?php
+require_once "./customer-controller.php";
+session_start();
+$cid = $_SESSION['cust_id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
     <link rel="stylesheet" href="homepagenew.css">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="customer-registration.css">
-    <title>Customer Registration</title>
+    <title>Account Settings</title>
 </head>
 <style>
     h1 {
@@ -37,26 +42,29 @@
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
       </div><br><br><br><br><br>
-      <h1>Customer Registration</h1>
+      <h1>Account Settings</h1>
     <div class="container">
-        <form action="customer-registration.php" method="post" class="center-form">
-            <input type="text" id="fname" name="fname" placeholder="Enter First Name:*"><br><br>
-            <input type="text" id="mname" name="mname" placeholder="Enter Middle Name:"><br><br>
-            <input type="text" id="lname" name="lname" placeholder="Enter Last Name:"><br><br>
-            <input type="text" id="locality" name="locality" placeholder="Enter Locality:*"><br><br>
-            <input type="text" id="city" name="city" placeholder="Enter City:*"><br><br>
-            <input type="text" id="state" name="state" placeholder="Enter State:*"><br><br>
-            <input type="text" id="country" name="country" placeholder="Enter Country:*"><br><br>
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" placeholder="Enter Date of Birth:*"><br><br>
-            <input type="text" id="number" name="number" placeholder="Enter Contact Number:*"><br><br>
-            <input type="text" id="mail" name="mail" placeholder="Enter Your Email:*"><br><br>
-            <input type="password" id="password" name="password" placeholder="Enter Password:*"><br><br>
+        <form action="customeraccountsetting.php" method="post" class="center-form">
+        <?php
+              $customer = get_customer_details($cid);
+              ?>
+               <label>Name:</label><br>
+            <input type="text" id="fname" name="fname" value="<?=$customer['f_name']?> <?=$customer['m_name']?> <?=$customer['l_name']?>"><br><br>
+            <label>Mail:</label><br>
+            <input type="text" id="mname" name="mname" value="<?=$customer['mail']?>"><br><br>
+            <label>Locality:</label><br>
+            <input type="text" id="locality" name="locality" value="<?=$customer['locality']?>"><br><br>
+            <label>City:</label><br>
+            <input type="text" id="city" name="city" value="<?=$customer['city']?>"><br><br>
+            <label>State:</label><br>
+            <input type="text" id="state" name="state" value="<?=$customer['state']?>"><br><br>
+            <label>Country:</label><br>
+            <input type="text" id="country" name="country" value="<?=$customer['country']?>"><br><br>           
+            <input type="password" id="password" name="password" placeholder="Enter New Password:*"><br><br>
             <input type="password" id="passwordc" name="passwordc" placeholder="Confirm Password:*"><br><br>
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
         </form>
     </div>
 </body>
-
 </html>

@@ -5,22 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="homepagenew.css">
     <title>Complete your purchase</title>
+    <style>
+    header {
+            background-color: black;
+            top: 0;
+            width: 100%;
+            position: fixed;
+            color: white;
+            height: 70px;
+
+        }
+        </style>
 </head>
 <body>
 
     <header>
-        <h1 class="logo">Shopping</h1>
+        <!-- <h1 class="logo">Shopping</h1>
         <ul class="menu-container">
             <li class="menu-item">Home</li>
             <li class="menu-item">Collections</li>
             <li class="menu-item">Products</li>
             <li class="menu-item red">For Sale</li>
-        </ul>
-        <div class="menu-icons-container">
+        </ul> -->
+    <?php require_once "./header.php"; ?>
+        <!-- <div class="menu-icons-container">
            <img src="Resources/Search.svg" alt="" class="icon"> 
            <img src="Resources/Profile.svg" alt="" class="icon"> 
-           <img src="Resources/Cart.svg" alt="" class="icon"> 
+           <img src="Resources/Cart.svg" alt="" class="icon">  -->
         </div>
     </header>
 
@@ -59,6 +72,10 @@
                     <label for="name">CVC</label>
                     <input type="text" name="name" id="name" placeholder="***">
                 </div>
+            </div>
+            <div class="input-line">
+                <label for="name">Cash on Delivery</label>
+                <input type="radio">
             </div>
             <input type="submit" value="Complete purchase">
         </form>

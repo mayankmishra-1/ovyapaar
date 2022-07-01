@@ -10,8 +10,9 @@ if (isset($_POST['add_to_cart'])) {
     $cust_id = $_SESSION['cust_id'];
     $product_id = $_POST['product_id'];
     $price = $_POST['price'];
+    $sid=$_POST['sid'];
     $con = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-    $sql = "INSERT INTO cart(cust_id, product_id, quantity, price) VALUES('$cust_id', '$product_id', 1, '$price')";
+    $sql = "INSERT INTO cart(cust_id, product_id, quantity, price, s_id) VALUES('$cust_id', '$product_id', 1, '$price', '$sid')";
     $con->query($sql);
   } else {
     echo "<script>alert('Please login to access cart')</script>";
@@ -31,6 +32,9 @@ if (isset($_POST['add_to_cart'])) {
   <style>
     #login_signup:hover {
       cursor: pointer;
+    }
+    body{
+    background-image: url(https://www.digitshack.com/codepen/mentor1/pattern-background-desktop.svg);
     }
   </style>
 </head>
@@ -56,8 +60,9 @@ if (isset($_POST['add_to_cart'])) {
             <h1><?= $row['p_name'] ?></h1>
             <p class="price">Rs.<?= $row['p_price'] ?></p>
             <p><?= $row['p_desc'] ?></p>
+            <input type="hidden" name="sid" value="<?= $row['s_id']?>">
             <p><button id="add_to_cart" name="add_to_cart">Add to Cart</button></p>
-            <p><button onclick="window.location.href = 'cart.html';">Buy Now</button></p>
+            <p><button type="button" onclick="window.location.href = 'product-page.php?pid=<?= $row['product_id'] ?>';">Buy Now</button></p>
           </div>
         </form>
       <?php
